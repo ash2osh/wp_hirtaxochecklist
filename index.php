@@ -12,9 +12,9 @@ define('HTC_PLUGIN_URL', __FILE__);
 
 include_once 'settings.php';
 
-add_action('admin_init', 'htc_admin_int');
+add_action('admin_init', 'htc_enq_script');
 
-function htc_admin_int() {
+function htc_enq_script() {
     wp_register_script(
             'hirtaxochecklist_main', plugins_url('/main.js', HTC_PLUGIN_URL), array('jquery'), '1.0.0', true
     );
@@ -34,3 +34,7 @@ function htc_admin_int() {
     );
     wp_localize_script('hirtaxochecklist_main', 'HTCVAR', $php_vars);
 }
+
+//enqueue also for front end but the output of wp_terms_checklist( must be wrapped in <ul id="{termname}checklist"
+add_action('wp_enqueue_scripts', 'htc_enq_script');
+

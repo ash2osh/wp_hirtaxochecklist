@@ -4,19 +4,18 @@ add_action('admin_init', 'htc_settings_init');
 
 function htc_add_admin_menu() {
 
-    add_submenu_page('tools.php', 'hirtaxochecklist', 'hirtaxochecklist', 'manage_options', 'hirtaxochecklist', 'htc_options_page');
+ add_submenu_page('tools.php', 'hirtaxochecklist', 'hirtaxochecklist', 'manage_options', 'hirtaxochecklist', 'htc_options_page');
 }
-
 function htc_settings_init() {
 
-    register_setting('pluginPage', 'htc_settings');
+    register_setting('htcPage', 'htc_settings');
 
     add_settings_section(
-            'htc_pluginPage_section', __('', 'hirtaxochecklist'), 'htc_settings_section_callback', 'pluginPage'
+            'htc_htcPage_section', __('', 'hirtaxochecklist'), 'htc_settings_section_callback', 'htcPage'
     );
 
     add_settings_field(
-            'htc_select_field_0', __('Please select taxomonies', 'hirtaxochecklist'), 'htc_select_field_0_render', 'pluginPage', 'htc_pluginPage_section'
+            'htc_select_field_0', __('Please select taxomonies', 'hirtaxochecklist'), 'htc_select_field_0_render', 'htcPage', 'htc_htcPage_section'
     );
 }
 
@@ -54,8 +53,8 @@ function htc_options_page() {
         <h2> hierarchical taxomonies checklist checking</h2>
 
         <?php
-        settings_fields('pluginPage');
-        do_settings_sections('pluginPage');
+        settings_fields('htcPage');
+        do_settings_sections('htcPage');
         submit_button();
         ?>
 
