@@ -2,7 +2,7 @@
     'use strict';
     $(function () {
         var checkslists = HTCVAR.checkslists; //outputs the site url without last /
-
+//thanks goes to https://ryansechrest.com/2013/03/automatically-check-parent-checkbox-if-child-is-selected-in-wordpress/
         $(checkslists).find('input').each(function (index, input) {
             $(input).bind('change', function () {
                 var checkbox = $(this);

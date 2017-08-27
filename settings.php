@@ -4,7 +4,7 @@ add_action('admin_init', 'htc_settings_init');
 
 function htc_add_admin_menu() {
 
- add_submenu_page('tools.php', 'hirtaxochecklist', 'hirtaxochecklist', 'manage_options', 'hirtaxochecklist', 'htc_options_page');
+ add_submenu_page('tools.php', 'hirtaxochecklist', 'hierarchical taxonomies checklist', 'manage_options', 'hirtaxochecklist', 'htc_options_page');
 }
 function htc_settings_init() {
 
